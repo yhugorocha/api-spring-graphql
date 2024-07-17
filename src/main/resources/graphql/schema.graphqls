@@ -1,0 +1,31 @@
+type Mutation{
+    addCategory(categoryRequest: CategoryRequest): Category
+    addProduct(productRequest: ProductRequest): Product
+}
+
+type Query{
+    categoryById(id: ID!): Category
+    findAllproducts: [Product]
+}
+
+input CategoryRequest{
+    name: String!
+}
+
+type Category{
+    id: ID!
+    name: String
+}
+
+input ProductRequest{
+    name: String!
+    price: Float!
+    categoryId: ID!
+}
+
+type Product{
+    id: ID
+    name: String
+    price: Float
+    category: Category
+}
